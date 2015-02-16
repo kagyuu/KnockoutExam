@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello knockdown.js</title>
+    <!-- 
+    require.js (http://requirejs.org/) を使って MVC のコードを分離する。
+    この HTML は、View層。Controller を require.js で読み込む。
+    Model と knockout.js などの依存ライブラリは、Controller から読み込む。
+    
+    ※ require.js を使わずに knockout.js のみでアプリをつくる事もできる
+    -->
+    <script type="text/javascript" charset="UTF-8" src="js/lib/require.js" data-main="js/knockoutEx1_controller.js"></script>
+  </head>
+  <body>
+    <p>First name: <input data-bind="value: firstName" title="個人名を入力してください" /></p>
+    <p>Last name : <input data-bind="value: lastName" title="姓を入力してください" /></p>
+    <p>Full name : <strong data-bind="text: fullName"></strong></p>
+    <button data-bind='click: registerClick, disable: isEnableRegister'>Search</button>
+  </body>
+</html>

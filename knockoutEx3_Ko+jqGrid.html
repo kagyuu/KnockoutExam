@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>knockdown.js with jqgrid</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="js/lib/jquery-ui-1.11.3/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="js/lib/jquery-grid-4.7.1/ui.jqgrid.css" />
+    <script type="text/javascript" charset="UTF-8" src="js/lib/require.js" data-main="js/knockoutEx3_controller.js"></script>
+  </head>
+  <body>
+    <p>First name: <input id="firstName" data-bind="value: firstName" title="個人名を入力してください"/></p>
+    <p>Last name : <input id="lastName" data-bind="value: lastName" title="姓を入力してください"/></p>
+    <p>Full name : <strong data-bind="text: fullName"></strong></p>
+    <p><button data-bind='click: registerClick, disable: isEnableRegister'>Search</button></p>
+    <table id="myTbl"></table>
+    <div id="myPager"></div><br>
+  </body>
+</html>
