@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>knockdown.js bind1</title>
+    <style>
+h1 {
+    color: hsl(120, 50%, 50%);
+    padding-left: 5px;
+    border-bottom: 4px solid hsl(120, 50%, 50%);
+    font-size: medium;
+}
+    
+    </style>
+    <script type="text/javascript" charset="UTF-8" src="js/lib/require.js" data-main="js/knockoutEx4_init.js"></script>
+  </head>
+  <body>
+    <h1>Visible Binding Example</h1>
+    <div data-bind="visible: shouldShowMessage">
+      このメッセージは "shouldShowMessage" が true を保持している場合にのみ表示されます。
+    </div>
+    <button data-bind="click: btnShowMessageClick, text: shouldShowMessage() ? 'Hide' : 'Show'"></button>
+    
+    <h1>Text Binding Example</h1>
+    <p>
+	    <input type="range" min="0" max="50" data-bind="value: sldValue"/>
+	    <span data-bind="text: txtValue"></span>
+    </p>
+
+	<h1>HTML Binding Example</h1>    
+    <p>
+    	<div data-bind="html: planet"></div>
+    	<button data-bind="click: btnPrevPlaent">Prev</button>
+    	<button data-bind="click: btnNextPlaent">Next</button>
+    </p>
+  </body>
+</html>
