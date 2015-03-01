@@ -10,7 +10,16 @@ h1 {
     border-bottom: 4px solid hsl(120, 50%, 50%);
     font-size: medium;
 }
-    
+
+.colRed {
+	color: red;
+}
+.colOrange {
+	color: orange;
+}
+.colBlue {
+	color: blue;
+}
     </style>
     <script type="text/javascript" charset="UTF-8" src="js/lib/require.js" data-main="js/knockoutEx4_init.js"></script>
   </head>
@@ -27,11 +36,40 @@ h1 {
 	    <span data-bind="text: txtValue"></span>
     </p>
 
-	<h1>HTML Binding Example</h1>    
+	<h1>HTML Binding Example</h1>
     <p>
-    	<div data-bind="html: planet"></div>
+    	<div data-bind="html: planet" style="width:240px"></div>
     	<button data-bind="click: btnPrevPlaent">Prev</button>
     	<button data-bind="click: btnNextPlaent">Next</button>
     </p>
+    
+    <h1>CSS Binding Example</h1>
+    <p>
+    	<label><input type="radio" name="color" value="Red" data-bind="checked: radioSelectOptionValues" />Red</label>
+    	<label><input type="radio" name="color" value="Orange" data-bind="checked: radioSelectOptionValues" />Orange</label>
+    	<label><input type="radio" name="color" value="Blue" data-bind="checked: radioSelectOptionValues" />Blue</label>
+    	⇒ <span data-bind="text: txtColor, css: cssColor"></span><br/>
+    	
+	    <input type="range" min="-100" max="100" data-bind="value: sldCss"/>
+	    ⇒ <span data-bind="text: txtCss, css : {colBlue : sldCss() < 0, colRed : sldCss() > 50}"></span>
+    </p>
+    
+    
+    <h1>Style Binding Example</h1>
+    <p>
+	    <input type="range" min="-100" max="100" data-bind="value: sldStyle"/>
+	    ⇒ <span data-bind="text: txtStyle, style : {color : (sldStyle() < 0 ? 'blue' : 'red'), fontWeight : (sldStyle() < 0 ? 'bold' : 'normal')}"></span>
+	    <!-- CSS の font-weight など "-" を含む Style 属性は、knockout.js では Camel(らくだ) にする ex. font-weight -> fontWeight) -->
+    </p>
+    
+    <h1>Attribute Binding Example</h1>
+    <p>
+    	<label><input type="radio" name="pen" value="Rotling" data-bind="checked: radioPen" />Rotling</label>
+    	<label><input type="radio" name="pen" value="Sheaffer" data-bind="checked: radioPen" />Sheaffer</label>
+    	<label><input type="radio" name="pen" value="Parker" data-bind="checked: radioPen" />Parker</label><br/>
+		<a href="" data-bind="text: penHref, attr : {href : penHref}"></a>
+		<!-- href="" がないと、リンクの CSS が適用されない -->
+    </p>
+    
   </body>
 </html>
