@@ -3,7 +3,7 @@
  */
 define(['knockout'], function(ko) {
 
-  return function appViewModel(mdl) {
+  return function appViewModel() {
     // ---------- visible
     this.shouldShowMessage = ko.observable(false);
     this.btnShowMessageClick = function() {
