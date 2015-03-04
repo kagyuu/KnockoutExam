@@ -35,15 +35,15 @@ td{
 		<thead>
 			<tr>
 				<th></th>
-				<th><a data-bind="click: sortByFristName">First name⇅</a></th>
-				<th><a data-bind="click: sortByLastName">Last name⇅</a></th>
+				<th><a data-bind="click: sortByFristName">First name&#8645;</a></th>
+				<th><a data-bind="click: sortByLastName">Last name&#8645;</a></th>
 				<th></th>
 			</tr>
 		</thead>
 		<tbody data-bind="foreach: people">
 			<!-- foreach 節の中では this は people。view-model は $parent -->
-			<tr>
-				<td data-bind="text: $index"></td>
+			<tr data-bind="style: {'background-color' : ( $index() % 2 === 0 ? 'azure' : 'white')}">
+				<td data-bind="text: $index() + 1"></td>
 				<td data-bind="text: firstName"></td>
 				<td data-bind="text: lastName"></td>
 				<td><button data-bind="click: $parent.removePerson">delete</button></td>
