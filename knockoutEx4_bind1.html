@@ -24,9 +24,15 @@ h1 {
     <script type="text/javascript" charset="UTF-8" src="js/lib/require.js" data-main="js/knockoutEx4_init.js"></script>
   </head>
   <body>
-    <h1>Visible Binding Example</h1>
+    <h1>Visible, If, Ifnot Binding Example</h1>
     <div data-bind="visible: shouldShowMessage">
-      このメッセージは "shouldShowMessage" が true を保持している場合にのみ表示されます。
+      visible このメッセージは "shouldShowMessage" が true を保持している場合にのみ表示されます。
+    </div>
+    <div data-bind="if: shouldShowMessage">
+      if このメッセージは "shouldShowMessage" が true を保持している場合にのみ存在します。
+    </div>
+    <div data-bind="ifnot: shouldShowMessage">
+      ifnot このメッセージは "shouldShowMessage" が false を保持している場合にのみ存在します。
     </div>
     <button data-bind="click: btnShowMessageClick, text: shouldShowMessage() ? 'Hide' : 'Show'"></button>
     
