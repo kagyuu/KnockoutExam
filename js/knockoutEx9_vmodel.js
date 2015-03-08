@@ -3,7 +3,7 @@
  */
 define(['knockout'], function(ko) {
 
-	return function appViewModel(colorMdl) {
+	return function appViewModel() {
 		var self = this;
 		self.setComponent1 = function(component) {
 			self.component1 = component;
