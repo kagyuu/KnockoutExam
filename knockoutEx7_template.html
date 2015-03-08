@@ -2,7 +2,7 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <title>knockdown.js Ex5</title>
+    <title>knockdown.js Ex7</title>
     <style>
 table{
 	border-collapse: collapse;
@@ -25,6 +25,14 @@ td{
 	border-left: 1px solid #ccc;
 }
     </style>
+    <script type="text/html" id="name-template">
+		<tr data-bind="style: {'background-color' : ( $index() % 2 === 0 ? 'azure' : 'white')}">
+			<td data-bind="text: $index() + 1"></td>
+			<td data-bind="text: firstName"></td>
+			<td data-bind="text: lastName"></td>
+			<td><button data-bind="click: $parent.removePerson">delete</button></td>
+		</tr>
+    </script>
     <script type="text/javascript" charset="UTF-8" src="js/lib/require.js" data-main="js/knockoutEx5_init.js"></script>
   </head>
   <body>
@@ -40,14 +48,7 @@ td{
 				<th></th>
 			</tr>
 		</thead>
-		<tbody data-bind="foreach: people">
-			<!-- foreach 節の中では this は people。view-model は $parent -->
-			<tr data-bind="style: {'background-color' : ( $index() % 2 === 0 ? 'azure' : 'white')}">
-				<td data-bind="text: $index() + 1"></td>
-				<td data-bind="text: firstName"></td>
-				<td data-bind="text: lastName"></td>
-				<td><button data-bind="click: $parent.removePerson">delete</button></td>
-			</tr>
+		<tbody data-bind="template : {name : 'name-template', foreach: people}">
 		</tbody>
 	</table>  
   </body>
