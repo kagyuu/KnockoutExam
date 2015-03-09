@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>knockdown.js Ex8</title>
+    <style>
+h1 {
+    color: hsl(120, 50%, 50%);
+    padding-left: 5px;
+    border-bottom: 4px solid hsl(120, 50%, 50%);
+    font-size: medium;
+}
+    </style>
+    <script type="text/javascript" charset="UTF-8" src="js/lib/require.js" data-main="js/knockoutEx8_init.js"></script>
+  </head>
+  <body>
+    <h1>Click Binding Example</h1>
+    <p>
+    	<span style="border :1px dashed; padding : 15px" data-bind="click: divClick">
+	    	<a href="#" data-bind="click: aClick, clickBubble: false">Click</a>&nbsp;
+	    	<button data-bind="click: btnClick, clickBubble: false">Click</button>&nbsp;
+    	</span>
+    	&nbsp;<span data-bind="text: msgClick"></span>
+    </p>
+        
+  </body>
+</html>
