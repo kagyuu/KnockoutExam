@@ -1,7 +1,7 @@
 /*
  * アプリケーションの View Model.
  */
-define(['knockout'], function(ko) {
+define(['knockout','jquery'], function(ko,$) {
 
   return function appViewModel() {
     var self = this;
@@ -19,7 +19,20 @@ define(['knockout'], function(ko) {
     };
     
     <!-- Submit Binding Example -->
+    self.msgEvent = ko.observable("");
+    self.mouseIn = function (data, event) {
+      self.msgEvent("Welcome");
+    };
+    self.mouseOut = function (data, event) {
+      self.msgEvent("");
+    };
+    
     <!-- Enable/disable Binding Example -->
+    self.msgSubmit = ko.observable("");
+    self.submit = function (formElement) {
+      self.msgSubmit($(formElement).serialize());
+    };
+    
     <!-- Value Binding Example -->
     <!-- Hasfocus Binding Example -->
     <!-- Checked Binding Example -->

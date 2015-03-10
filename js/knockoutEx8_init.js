@@ -10,6 +10,7 @@ require.config({
   paths: {
    'app':      '../',
    'knockout' : 'knockout-3.2.0',
+   'jquery'   : 'jquery-ui-1.11.3/external/jquery/jquery',   
   },
 
   // AMDに対応してないモジュールを読み込む

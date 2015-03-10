@@ -10,21 +10,39 @@ h1 {
     border-bottom: 4px solid hsl(120, 50%, 50%);
     font-size: medium;
 }
+.dashedBox {
+	width : 200px;
+	min-height : 25px;
+	border :1px dashed;
+	padding : 15px;
+}
     </style>
     <script type="text/javascript" charset="UTF-8" src="js/lib/require.js" data-main="js/knockoutEx8_init.js"></script>
   </head>
   <body>
     <h1>Click Binding Example</h1>
-    <p>
-      <span style="border :1px dashed; padding : 15px" data-bind="click: divClick">
-        <a href="#" data-bind="click: aClick, clickBubble: false">Click</a>&nbsp;
-        <button data-bind="click: btnClick, clickBubble: false">Click</button>&nbsp;
-      </span>
-      &nbsp;<span data-bind="text: msgClick"></span>
-    </p>
+	<div class="dashedBox" data-bind="click: divClick">
+		<a href="#" data-bind="click: aClick, clickBubble: false">Click</a>&nbsp;
+		<button data-bind="click: btnClick, clickBubble: false">Click</button>&nbsp;
+	</div>
+	<span data-bind="text: msgClick"></span>
 
-    <h1>Event Binding Example (未稿)</h1>
-    <h1>Submit Binding Example (未稿)</h1>
+    <h1>Event Binding Example</h1>
+	<div class="dashedBox" data-bind="event: { mouseover: mouseIn, mouseout: mouseOut}">
+		<span data-bind="text: msgEvent"></span>
+	</div>
+    
+    <h1>Submit Binding Example </h1>
+	<div class="dashedBox">
+    	<form data-bind="submit: submit">
+    		X : <input type="text" name="x" value="0.0"/><br/>
+    		Y : <input type="text" name="y" value="0.0"/><br/>
+    		Z : <input type="text" name="z" value="0.0"/><br/>
+    		<input type="reset"/>&nbsp;<input type="submit"/>
+    	</form>
+	</div>
+	<span data-bind="text: msgSubmit"></span>
+    
     <h1>Enable/disable Binding Example (未稿)</h1>
     <h1>Value Binding Example (未稿)</h1>
     <h1>Hasfocus Binding Example (未稿)</h1>
