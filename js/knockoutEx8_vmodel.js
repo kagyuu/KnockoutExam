@@ -6,7 +6,7 @@ define(['knockout','jquery'], function(ko,$) {
   return function appViewModel() {
     var self = this;
     
-    <!-- Event Binding Example -->
+    // Click Binding Example
     self.msgClick = ko.observable("");
     self.divClick = function (data, event) {
       self.msgClick("div " + (event.shiftKey ? "+Shift" : ""));
@@ -18,7 +18,7 @@ define(['knockout','jquery'], function(ko,$) {
       self.msgClick("button " + (event.shiftKey ? "+Shift" : ""));
     };
     
-    <!-- Submit Binding Example -->
+    // Event Binding Example
     self.msgEvent = ko.observable("");
     self.mouseIn = function (data, event) {
       self.msgEvent("Welcome");
@@ -27,17 +27,18 @@ define(['knockout','jquery'], function(ko,$) {
       self.msgEvent("");
     };
     
-    <!-- Enable/disable Binding Example -->
+    // Submit Binding Example
     self.msgSubmit = ko.observable("");
     self.submit = function (formElement) {
       self.msgSubmit($(formElement).serialize());
     };
     
-    <!-- Value Binding Example -->
-    <!-- Hasfocus Binding Example -->
-    <!-- Checked Binding Example -->
-    <!-- Options Binding Example -->
-    <!-- SelectedOptions Binding Example -->
-    <!-- UniqueNmae Binding Example -->
+    // Enable/disable Binding Example
+    // Value Binding Example
+    // Hasfocus Binding Example
+    // Checked Binding Example
+    // Options Binding Example
+    // SelectedOptions Binding Example
+    // UniqueNmae Binding Example
   };
 });
