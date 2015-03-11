@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>knockdown.js Ex8</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="js/lib/jquery-ui-1.11.3/jquery-ui.min.css">
     <style>
 h1 {
     color: hsl(120, 50%, 50%);
@@ -10,12 +11,29 @@ h1 {
     border-bottom: 4px solid hsl(120, 50%, 50%);
     font-size: medium;
 }
+hr {
+    border: 0;
+    border-bottom: 1px dashed #ccc;
+    background: #999;
+}
 .dashedBox {
-	width : 200px;
+	width : 350px;
 	min-height : 25px;
 	border :1px dashed;
 	padding : 15px;
 }
+.dashedTable {
+	border-collapse: collapse;
+}
+.dashedTable th {
+	background-color: #eee;
+	border :1px dashed;	
+}
+.dashedTable td {
+	border :1px dashed;	
+	padding : 5px;
+}
+
     </style>
     <script type="text/javascript" charset="UTF-8" src="js/lib/require.js" data-main="js/knockoutEx8_init.js"></script>
   </head>
@@ -32,7 +50,7 @@ h1 {
 		<span data-bind="text: msgEvent"></span>
 	</div>
     
-    <h1>Submit Binding Example </h1>
+    <h1>Submit Binding Example</h1>
 	<div class="dashedBox">
     	<form data-bind="submit: submit">
     		X : <input type="text" name="x" value="0.0"/><br/>
@@ -43,8 +61,68 @@ h1 {
 	</div>
 	<span data-bind="text: msgSubmit"></span>
     
-    <h1>Enable/disable Binding Example (未稿)</h1>
-    <h1>Value Binding Example (未稿)</h1>
+    <h1>Enable/disable Binding Example</h1>
+	<div class="dashedBox">
+		You must accept the License Agreement to download this software.<br/>
+		<input type="radio" name="licenseAgree" value="accept" data-bind="checked: acceptCheck"/> Accept
+		<input type="radio" name="licenseAgree" value="decline" data-bind="checked: acceptCheck"/> Decline
+		<button data-bind="enable : acceptCheck() === 'accept'">Download</button>
+		<button data-bind="disable : acceptCheck() === 'accept'">Cancel</button>
+	</div>
+    
+    <h1>Value Binding Example</h1>
+		<table class="dashedTable">
+			<thead>
+				<tr><th rowspan="2"></th><th rowspan="2"></th><th rowspan="2">bind</th><th colspan="5">When Update View Model</th></tr>
+				<tr>
+					<th>lost focus</th>
+					<th>key down</th>
+					<th>auto complete<br/>(arrow key)</th>
+					<th>auto complete<br/>(mouse)</th>
+					<th>clip board<br/>drag&amp;drop</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>
+						<input id="txtValue1" type="text" data-bind="value : txtValue1"/>&nbsp;
+						<span data-bind="text : txtLength1"></span> 文字
+					</td>
+					<td>data-bind="value : txtValue1"</td>
+					<td>✔</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>
+						<input id="txtValue2" type="text" data-bind="value : txtValue2, valueUpdate: 'afterkeydown'"/>&nbsp;
+						<span data-bind="text : txtLength2"></span> 文字</td>
+					<td>data-bind="value : txtValue2, valueUpdate: 'afterkeydown'"</td>
+					<td>✔</td>
+					<td>✔</td>
+					<td>✔</td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>
+						<input id="txtValue3" type="text" data-bind="textInput : txtValue3,valueUpdate: 'afterkeydown'"/>&nbsp;
+						<span data-bind="text : txtLength3"></span> 文字</td>
+					<td>data-bind="textInput : txtValue3"</td>
+					<td>✔</td>
+					<td>✔</td>
+					<td></td>
+					<td></td>
+					<td>✔</td>
+				</tr>
+			</tbody>
+		</table>
+		
     <h1>Hasfocus Binding Example (未稿)</h1>
     <h1>Checked Binding Example (未稿)</h1>
     <h1>Options Binding Example (未稿)</h1>

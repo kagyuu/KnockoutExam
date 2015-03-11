@@ -34,7 +34,28 @@ define(['knockout','jquery'], function(ko,$) {
     };
     
     // Enable/disable Binding Example
+    self.acceptCheck = ko.observable("decline");
+    
     // Value Binding Example
+    self.txtValue1 = ko.observable("");
+    self.txtLength1 = ko.computed(function(){
+	   return self.txtValue1().length; 
+    });
+    self.txtValue2 = ko.observable("");
+    self.txtLength2 = ko.computed(function(){
+	   return self.txtValue2().length; 
+    });
+    
+    // Text Input Binding Examle
+    self.txtValue3 = ko.observable("");
+    self.txtLength3 = ko.computed(function(){
+	   return self.txtValue3().length; 
+    });
+    self.txtValue4 = ko.observable("");
+    self.txtLength4 = ko.computed(function(){
+	   return self.txtValue4().length; 
+    });
+    
     // Hasfocus Binding Example
     // Checked Binding Example
     // Options Binding Example
