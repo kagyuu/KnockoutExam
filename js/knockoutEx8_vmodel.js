@@ -51,12 +51,18 @@ define(['knockout','jquery'], function(ko,$) {
     self.txtLength3 = ko.computed(function(){
 	   return self.txtValue3().length; 
     });
-    self.txtValue4 = ko.observable("");
-    self.txtLength4 = ko.computed(function(){
-	   return self.txtValue4().length; 
-    });
     
     // Hasfocus Binding Example
+    self.focusValue = ko.observable("");
+    self.isFocused = ko.observable(false);
+    self.focusClick = function(){
+    	if (self.focusValue() === '') {
+	    	self.isFocused(true);
+    	} else {
+	    	alert(self.focusValue());
+    	}
+    }
+    
     // Checked Binding Example
     // Options Binding Example
     // SelectedOptions Binding Example

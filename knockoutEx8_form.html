@@ -33,7 +33,11 @@ hr {
 	border :1px dashed;	
 	padding : 5px;
 }
-
+button:disabled {
+	color : lightblue;
+    background-color: transparent;
+    border : none;
+}
     </style>
     <script type="text/javascript" charset="UTF-8" src="js/lib/require.js" data-main="js/knockoutEx8_init.js"></script>
   </head>
@@ -73,12 +77,10 @@ hr {
     <h1>Value Binding Example</h1>
 		<table class="dashedTable">
 			<thead>
-				<tr><th rowspan="2"></th><th rowspan="2"></th><th rowspan="2">bind</th><th colspan="5">When Update View Model</th></tr>
+				<tr><th rowspan="2"></th><th rowspan="2"></th><th rowspan="2">data-bind</th><th colspan="3">When Update View Model</th></tr>
 				<tr>
 					<th>lost focus</th>
 					<th>key down</th>
-					<th>auto complete<br/>(arrow key)</th>
-					<th>auto complete<br/>(mouse)</th>
 					<th>clip board<br/>drag&amp;drop</th>
 				</tr>
 			</thead>
@@ -86,44 +88,39 @@ hr {
 				<tr>
 					<td>1</td>
 					<td>
-						<input id="txtValue1" type="text" data-bind="value : txtValue1"/>&nbsp;
+						<input type="text" data-bind="value : txtValue1"/>&nbsp;
 						<span data-bind="text : txtLength1"></span> 文字
 					</td>
 					<td>data-bind="value : txtValue1"</td>
-					<td>✔</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>✔</td><td></td>	<td></td>
 				</tr>
 				<tr>
 					<td>2</td>
 					<td>
-						<input id="txtValue2" type="text" data-bind="value : txtValue2, valueUpdate: 'afterkeydown'"/>&nbsp;
+						<input type="text" data-bind="value : txtValue2, valueUpdate: 'afterkeydown'"/>&nbsp;
 						<span data-bind="text : txtLength2"></span> 文字</td>
 					<td>data-bind="value : txtValue2, valueUpdate: 'afterkeydown'"</td>
-					<td>✔</td>
-					<td>✔</td>
-					<td>✔</td>
-					<td></td>
-					<td></td>
+					<td>✔</td><td>✔</td><td></td>
 				</tr>
 				<tr>
 					<td>3</td>
 					<td>
-						<input id="txtValue3" type="text" data-bind="textInput : txtValue3,valueUpdate: 'afterkeydown'"/>&nbsp;
+						<input type="text" data-bind="textInput : txtValue3"/>&nbsp;
 						<span data-bind="text : txtLength3"></span> 文字</td>
 					<td>data-bind="textInput : txtValue3"</td>
-					<td>✔</td>
-					<td>✔</td>
-					<td></td>
-					<td></td>
-					<td>✔</td>
+					<td>✔</td><td>✔</td><td>✔</td>
 				</tr>
 			</tbody>
 		</table>
 		
-    <h1>Hasfocus Binding Example (未稿)</h1>
+    <h1>Hasfocus Binding Example</h1>
+	<div class="dashedBox">
+		<input type="text" size="40" style="vertical-align: middle;" data-bind="textInput : focusValue, hasFocus: isFocused"/>
+		<button style="vertical-align: middle;" data-bind="click : focusClick">
+			<span class="ui-icon ui-icon-search"></span>
+		</button>
+	</div>    
+    
     <h1>Checked Binding Example (未稿)</h1>
     <h1>Options Binding Example (未稿)</h1>
     <h1>SelectedOptions Binding Example (未稿)</h1>

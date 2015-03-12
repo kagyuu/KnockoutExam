@@ -22,45 +22,6 @@ require.config({
 
 require(['knockout', 'app/knockoutEx8_vmodel', 'jquery', 'jqueryui', 'domReady!'],
   function(ko, vmdl, $) {
-    ko.applyBindings(new vmdl());
-    
-    // jQuery UI Auto complete
-    var availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
-    ];
-    $( "#txtValue1" ).autocomplete({
-      source: availableTags
-    });    
-    $( "#txtValue2" ).autocomplete({
-      source: availableTags
-    });    
-    $( "#txtValue3" ).autocomplete({
-      source: availableTags
-    });    
-    $( "#txtValue4" ).autocomplete({
-      source: availableTags
-    });    
-    
+    ko.applyBindings(new vmdl());    
   }
 );
