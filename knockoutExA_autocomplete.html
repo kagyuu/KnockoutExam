@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>knockdown.js Ex10</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="js/lib/jquery-ui-1.11.3/jquery-ui.min.css">
+    <script type="text/javascript" charset="UTF-8" src="js/lib/require.js" data-main="js/knockoutExA_init.js"></script>
+  </head>
+  <body>
+  	<fieldset>
+  		<legend>未対策</legend>
+	  	<input id="tags1" data-bind="value: lang1, valueUpdate: 'afterkeydown'">
+	  	⇒ <span data-bind="text: lang1"></span><br/>
+	  	マウスで候補を選択すると、選択結果が View Model に反映されない
+  	</fieldset>
+  	<fieldset>
+  		<legend>対策済み</legend>
+	  	<input id="tags2" data-bind="value: lang2, valueUpdate: ['afterkeydown', 'blur']">
+	  	⇒ <span data-bind="text: lang2"></span><br/>
+	  	マウスで候補を選択しても、フォーカスが外れた段階で View Model に反映される
+  	</fieldset>
+  </body>
+</html>
