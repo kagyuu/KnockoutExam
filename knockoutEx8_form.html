@@ -116,14 +116,49 @@ button:disabled {
     <h1>Hasfocus Binding Example</h1>
 	<div class="dashedBox">
 		<input type="text" size="40" style="vertical-align: middle;" data-bind="textInput : focusValue, hasFocus: isFocused"/>
-		<button style="vertical-align: middle;" data-bind="click : focusClick">
+		<button style="vertical-align: middle;" data-bind="click : focusClick, css : {'ui-state-error' : focusValue() === ''}">
 			<span class="ui-icon ui-icon-search"></span>
 		</button>
 	</div>    
     
-    <h1>Checked Binding Example (未稿)</h1>
-    <h1>Options Binding Example (未稿)</h1>
-    <h1>SelectedOptions Binding Example (未稿)</h1>
+    <h1>Checked Binding Example</h1>
+	<div class="dashedBox">
+		<fieldset>
+			<legend>Single Checkbox</legend>
+			<label><input type="checkbox" data-bind="checked: chkOk"/> I like fruits.</label>
+		</fieldset>
+		<fieldset>
+			<legend>Multiple Checkbox</legend>
+			<label><input type="checkbox" value="Apple" data-bind="checked: chkFruits, enable: chkOk"/> Apple </label>&nbsp;
+			<label><input type="checkbox" value="Banana" data-bind="checked: chkFruits, enable: chkOk"/> Banana </label>&nbsp;
+			<label><input type="checkbox" value="Grape" data-bind="checked: chkFruits, enable: chkOk"/> Grape </label>&nbsp;
+		</fieldset>
+		<fieldset>
+			<legend>Radio Button</legend>
+			<label><input type="radio" name="vegetable" value="Juce" data-bind="checked: radEat, enable: chkOk"/> Juce </label>&nbsp;
+			<label><input type="radio" name="vegetable" value="Cocktail" data-bind="checked: radEat, enable: chkOk"/> Cocktail </label>&nbsp;
+			<label><input type="radio" name="vegetable" value="Pie" data-bind="checked: radEat, enable: chkOk"/> Pie </label>&nbsp;
+		</fieldset>
+		<button data-bind="click : chkOrder, enable: (chkOk() && chkFruits().length > 0)">Order</button>
+	</div>
+	<div id="dialog">
+		<img src="img/apple.png" data-bind="visible: chkFruits().indexOf('Apple') >= 0"/>
+		<img src="img/banana.png" data-bind="visible: chkFruits().indexOf('Banana') >= 0"/>
+		<img src="img/grape.png" data-bind="visible: chkFruits().indexOf('Grape') >= 0"/>
+	</div>
+    
+    <h1>Options/SelectOptions Binding Example</h1>
+	<div class="dashedBox">
+    	<select style="vertical-align: top;" data-bind="options: selFruitsOptions, selectedOptions: selFruits" size="5" multiple="true"></select>
+    	<select style="vertical-align: top;" data-bind="options: selEatOptions, value: selEat, optionsCaption: '-選択してください-'"></select>
+		<button style="vertical-align: top;" data-bind="click : selOrder, enable: selEat">Order</button>
+	</div>
+	<div id="dialog2">
+		<img src="img/apple.png" data-bind="visible: selFruits().indexOf('Apple') >= 0"/>
+		<img src="img/banana.png" data-bind="visible: selFruits().indexOf('Banana') >= 0"/>
+		<img src="img/grape.png" data-bind="visible: selFruits().indexOf('Grape') >= 0"/>
+	</div>
+	
     <h1>UniqueNmae Binding Example (未稿)</h1>
         
   </body>

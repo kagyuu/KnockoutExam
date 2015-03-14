@@ -31,6 +31,7 @@ define(['knockout','jquery'], function(ko,$) {
     self.msgSubmit = ko.observable("");
     self.submit = function (formElement) {
       self.msgSubmit($(formElement).serialize());
+      return false;
     };
     
     // Enable/disable Binding Example
@@ -64,8 +65,24 @@ define(['knockout','jquery'], function(ko,$) {
     }
     
     // Checked Binding Example
-    // Options Binding Example
-    // SelectedOptions Binding Example
-    // UniqueNmae Binding Example
+    self.chkOk = ko.observable(false);
+    self.chkFruits = ko.observableArray();
+    self.radEat = ko.observable("Juce");
+    self.chkOrder = function() {
+	    $( "#dialog" )
+	    	.dialog( "option" , { title : self.radEat() })
+	    	.dialog( "open" );
+    }
+    
+    // Options/SelectOptions Binding Example
+	self.selFruitsOptions = ko.observableArray(['Apple','Banana','Grape']);
+	self.selFruits = ko.observableArray(['Apple']);
+	self.selEatOptions = ko.observableArray(['Juce','Cocktail','Pie']);
+	self.selEat = ko.observable();
+	self.selOrder = function() {
+	    $( "#dialog2" )
+	    	.dialog( "option" , { title : self.selEat() })
+	    	.dialog( "open" );
+	}
   };
 });

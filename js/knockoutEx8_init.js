@@ -22,6 +22,10 @@ require.config({
 
 require(['knockout', 'app/knockoutEx8_vmodel', 'jquery', 'jqueryui', 'domReady!'],
   function(ko, vmdl, $) {
-    ko.applyBindings(new vmdl());    
+    ko.applyBindings(new vmdl());
+    
+	$( "#dialog" ).dialog({ autoOpen: false, width: 400 });
+	$( "#dialog2" ).dialog({ autoOpen: false, width: 400 });
   }
+  
 );
