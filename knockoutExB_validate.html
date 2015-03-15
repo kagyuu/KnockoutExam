@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>knockdown.js Ex11</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="js/lib/jquery-Validation-Engine-2.6.2/validationEngine.jquery.css">
+    <script type="text/javascript" charset="UTF-8" src="js/lib/require.js" data-main="js/knockoutExB_init.js"></script>
+  </head>
+  <body>
+  	<br/>
+  	<br/>
+   	<form id="myForm" data-bind="submit: submitFunc">
+   		<input type="text" size="40" maxlength="20" data-bind="value: name, uniqueName: true" class="validate[required]"><br/>
+   		<input type="reset"/>&nbsp;<input type="submit"/>
+   	</form>  
+  </body>
+</html>
