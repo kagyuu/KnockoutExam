@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>knockdown.js Ex11</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="js/lib/jquery-Validation-Engine-2.6.2/validationEngine.jquery.css">
+    <style>
+.dashedTable {
+    border-collapse: collapse;
+}
+.dashedTable th {
+    background-color: #eee;
+    border :1px dashed; 
+}
+.dashedTable td {
+    border :1px dashed; 
+    padding : 5px;
+}    
+    </style>
+    <script type="text/javascript" charset="UTF-8" src="js/lib/require.js" data-main="js/knockoutExC_init.js"></script>
+    <script type="text/javascript">
+function checkHELLO(field, rules, i, options){
+  if (field.val() != "HELLO") {
+  	 // the options is came from jquery.validationEngine-ja.js
+     // this allows the use of i18 for the error msgs
+     return options.allrules.validate2fields.alertText;
+  }
+}    
+    </script>
+  </head>
+  <body>
+   	<form id="myForm" class="dashedTable" data-bind="submit: submitFunc">
+	  	<table>
+			<thead>
+			    <tr>
+			    	<th></th>
+			    	<th>check</th>
+			        <th>Validation</th>
+			        <th>Input</th>
+			        <th>note</th>
+			    </tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>必須</td>
+					<td>validate[required]</td>
+					<td>
+						<input type="text" size="40" maxlength="20" data-bind="value: valRequired, uniqueName: true"
+						 class="validate[required]"></input>
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>正規表現</td>
+					<td>validate[required,custom[phone]]</td>
+					<td>
+						<input type="text" size="40" maxlength="20" data-bind="value: valPhone, uniqueName: true"
+						 class="validate[required,custom[phone]]"></input>
+					</td>
+					<td rowspan="10">
+						正規表現は jquery.validationEngine-ja.js に記載。<br/>
+						正規表現を追加する場合には jquery.validationEngine-ja.js に追記 <br/>
+						phone の正規表現は、ユーザ側で実装する必要あり <br/>
+						(各国ごとに異なるので配布元では対応しきれない)
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>正規表現</td>
+					<td>validate[required,custom[url]]</td>
+					<td>
+						<input type="text" size="40" maxlength="20" data-bind="value: valUrl, uniqueName: true"
+						 class="validate[required,custom[url]]"></input>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>正規表現</td>
+					<td>validate[required,custom[email]]</td>
+					<td>
+						<input type="text" size="40" maxlength="20" data-bind="value: valEmail, uniqueName: true"
+						 class="validate[required,custom[email]]"></input>
+					</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>正規表現</td>
+					<td>validate[required,custom[date]]</td>
+					<td>
+						<input type="date" size="40" maxlength="20" data-bind="value: valDate, uniqueName: true"
+						 class="validate[required,custom[date]]"></input>
+					</td>
+				</tr>
+				<tr>
+					<td>6</td>
+					<td>正規表現</td>
+					<td>validate[required,custom[number]]</td>
+					<td>
+						<input type="text" size="40" maxlength="20" data-bind="value: valNumber, uniqueName: true"
+						 class="validate[required,custom[number]]"></input>
+					</td>
+				</tr>
+				<tr>
+					<td>7</td>
+					<td>正規表現</td>
+					<td>validate[required,custom[integer]]</td>
+					<td>
+						<input type="number" size="40" maxlength="20" data-bind="value: valInteger, uniqueName: true"
+						 class="validate[required,custom[integer]]"></input>
+					</td>
+				</tr>
+				<tr>
+					<td>8</td>
+					<td>正規表現</td>
+					<td>validate[required,custom[ipv4]]</td>
+					<td>
+						<input type="text" size="40" maxlength="20" data-bind="value: valIpv4, uniqueName: true"
+						 class="validate[required,custom[ipv4]]"></input>
+					</td>
+				</tr>
+				<tr>
+					<td>9</td>
+					<td>正規表現</td>
+					<td>validate[required,custom[onlyNumberSp]]</td>
+					<td>
+						<input type="text" size="40" maxlength="20" data-bind="value: valOnlyNumberSp, uniqueName: true"
+						 class="validate[required,custom[onlyNumberSp]]"></input>
+					</td>
+				</tr>
+				<tr>
+					<td>10</td>
+					<td>正規表現</td>
+					<td>validate[required,custom[onlyLetterSp]]</td>
+					<td>
+						<input type="text" size="40" maxlength="20" data-bind="value: valOnlyLetterSp, uniqueName: true"
+						 class="validate[required,custom[onlyLetterSp]]"></input>
+					</td>
+				</tr>
+				<tr>
+					<td>11</td>
+					<td>正規表現</td>
+					<td>validate[required,custom[onlyLetterNumber]]</td>
+					<td>
+						<input type="text" size="40" maxlength="20" data-bind="value: valOnlyLetterNumber, uniqueName: true"
+						 class="validate[required,custom[onlyLetterNumber]]"></input>
+					</td>
+				</tr>
+				<tr>
+					<td>12</td>
+					<td>独自function</td>
+					<td>validate[required,funcCall[checkHELLO]]</td>
+					<td>
+						<input type="text" size="40" maxlength="20" data-bind="value: valFuncCall, uniqueName: true"
+						 class="validate[required,funcCall[checkHELLO]]"></input>
+					</td>
+					<td>
+						エラーメッセージは、jquery.validationEngine-ja.js に追記する。
+					</td>
+				</tr>
+				<tr>
+					<td>13</td>
+					<td>Equals</td>
+					<td>validate[required,equals[first]]</td>
+					<td>
+						email <input id="email_input" type="text" data-bind="uniqueName: true"
+						       class="validate[required,custom[email]]" value="a@b.net"></input><br/>
+						confirm <input type="text" data-bind="value: valConfirm, uniqueName: true"
+						       class="validate[required,equals[email_input]]"></input>
+					</td>
+					<td>
+					</td>
+				</tr>
+				
+			</tbody>
+	  	</table>
+   		<input type="reset"/>&nbsp;<input type="submit"/>
+   	</form>  
+  </body>
+</html>
