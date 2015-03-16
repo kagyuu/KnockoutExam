@@ -18,7 +18,11 @@ define(['knockout', 'jquery', 'validation', 'validationEngine'], function(ko,$) 
     self.valOnlyLetterSp = ko.observable("AB CDE");
     self.valOnlyLetterNumber = ko.observable("AB123");
     self.valFuncCall = ko.observable("HELL");
-    self.valConfirm = ko.observable("a@b.com")
+    self.valConfirm = ko.observable("a@b.com");
+    
+    self.valCat = ko.observable();
+    self.valDog = ko.observable();
+    self.valMother = ko.observable();
 
 	self.submitFunc = function (formElement) {
 		if ($(formElement).validationEngine('validate') ) {

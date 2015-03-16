@@ -172,6 +172,21 @@ function checkHELLO(field, rules, i, options){
 					<td>
 					</td>
 				</tr>
+				<tr>
+					<td>14</td>
+					<td>groupRequired</td>
+					<td>validate[groupRequired[question]]</td>
+					<td>
+						cat's name <input type="text" data-bind="value: valCat, uniqueName: true"
+						       class="validate[groupRequired[question]]" value="a@b.net"></input><br/>
+						dog's name <input type="text" data-bind="value: valDog, uniqueName: true"
+						       class="validate[groupRequired[question]]"></input><br/>
+						mother's name <input type="text" data-bind="value: valMother, uniqueName: true"
+						       class="validate[groupRequired[question]]"></input>
+					</td>
+					<td>
+					</td>
+				</tr>
 				
 			</tbody>
 	  	</table>
