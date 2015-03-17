@@ -23,6 +23,12 @@ define(['knockout', 'jquery', 'validation', 'validationEngine'], function(ko,$) 
     self.valCat = ko.observable();
     self.valDog = ko.observable();
     self.valMother = ko.observable();
+    
+    self.valMinMax = ko.observable(-1.0);
+    self.valMinMaxSize = ko.observable("1234567890ABCDEF");
+    self.valFuturePast = ko.observable("2000-01-01");
+    
+    self.chkMinMax = ko.observableArray(["1"]);
 
 	self.submitFunc = function (formElement) {
 		if ($(formElement).validationEngine('validate') ) {

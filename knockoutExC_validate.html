@@ -29,8 +29,8 @@ function checkHELLO(field, rules, i, options){
     </script>
   </head>
   <body>
-   	<form id="myForm" class="dashedTable" data-bind="submit: submitFunc">
-	  	<table>
+   	<form id="myForm" data-bind="submit: submitFunc">
+	  	<table class="dashedTable">
 			<thead>
 			    <tr>
 			    	<th></th>
@@ -178,16 +178,75 @@ function checkHELLO(field, rules, i, options){
 					<td>validate[groupRequired[question]]</td>
 					<td>
 						cat's name <input type="text" data-bind="value: valCat, uniqueName: true"
-						       class="validate[groupRequired[question]]" value="a@b.net"></input><br/>
+						       class="validate[groupRequired[question]]"></input><br/>
 						dog's name <input type="text" data-bind="value: valDog, uniqueName: true"
 						       class="validate[groupRequired[question]]"></input><br/>
 						mother's name <input type="text" data-bind="value: valMother, uniqueName: true"
 						       class="validate[groupRequired[question]]"></input>
 					</td>
 					<td>
+						3つのうち最低どれか一つに入力する
 					</td>
 				</tr>
-				
+				<tr>
+					<td>15</td>
+					<td>min,max</td>
+					<td>validate[min[0.0],max[100.0]]</td>
+					<td>
+						<input type="text" size="40" maxlength="20" data-bind="value: valMinMax, uniqueName: true"
+						 class="validate[required,min[0.0],max[100.0]]"></input>
+					</td>
+					<td>
+					</td>
+				</tr>
+				<tr>
+					<td>16</td>
+					<td>minSize,maxSize</td>
+					<td>validate[minSize[6],maxSize[12]]</td>
+					<td>
+						<input type="text" size="40" maxlength="20" data-bind="value: valMinMaxSize, uniqueName: true"
+						 class="validate[required,minSize[6],maxSize[12]]"></input>
+					</td>
+					<td>
+					</td>
+				</tr>
+				<tr>
+					<td>17</td>
+					<td>future,past</td>
+					<td>validate[future[now],past[2049-12-31]]</td>
+					<td>
+						<input type="date" data-bind="value: valFuturePast, uniqueName: true"
+						 class="validate[required,custom[date],future[now],past[2049-12-31]]"></input>
+					</td>
+					<td>
+					</td>
+				</tr>
+				<tr>
+					<td>18</td>
+					<td>minCheckbox,maxCheckbox</td>
+					<td>validate[minCheckbox[2],maxCheckbox[4]]</td>
+					<td>
+						<label><input type="checkbox" value="1" name="chkMinMax" data-bind="checked: chkMinMax"
+							class="validate[minCheckbox[2],maxCheckbox[4]]"/> 1 </label>
+							
+						<label><input type="checkbox" value="2" name="chkMinMax" data-bind="checked: chkMinMax"
+							class="validate[minCheckbox[2],maxCheckbox[4]]"/> 2 </label>
+							
+						<label><input type="checkbox" value="3" name="chkMinMax" data-bind="checked: chkMinMax"
+							class="validate[minCheckbox[2],maxCheckbox[4]]"/> 3 </label>
+							
+						<label><input type="checkbox" value="4" name="chkMinMax" data-bind="checked: chkMinMax"
+							class="validate[minCheckbox[2],maxCheckbox[4]]"/> 4 </label>
+							
+						<label><input type="checkbox" value="5" name="chkMinMax" data-bind="checked: chkMinMax"
+							class="validate[minCheckbox[2],maxCheckbox[4]]"/> 5 </label>
+							
+						<label><input type="checkbox" value="6" name="chkMinMax" data-bind="checked: chkMinMax"
+							class="validate[minCheckbox[2],maxCheckbox[4]]"/> 6 </label>
+					</td>
+					<td>
+					</td>
+				</tr>
 			</tbody>
 	  	</table>
    		<input type="reset"/>&nbsp;<input type="submit"/>
