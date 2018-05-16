@@ -17,6 +17,22 @@ define(['knockout'], function(ko) {
 	  'E0','E1','E2','E3','E4','E5','E6','E7','E8','E9','EA','EB','EC','ED','EE','EF',
 	  'F0','F1','F2','F3','F4','F5','F6','F7','F8','F9','FA','FB','FC','FD','FE','FF'
   ];
+  /* この コンポーネント の ViewModel が、
+     ko.components.register('color-slider', {
+        viewModel: colorMdl,
+        template: colorView
+     });
+     として登録される場合には、 componentInfo は undefined になる。 param しか設定されない。
+     このコンポーネントが置かれる DOM 要素を取得したい場合は、ファクトリメソッド経由で、ViewModel のコンストラクタを呼ぶ必要がある
+     ko.components.register('color-slider', {
+       viewModel: {
+         createViewModel: function(params, componentInfo) {
+           return new colorMdl(params, componentInfo);
+         }
+       },
+       template: colorView
+    });
+  */ 
   return function colorModel(params, componentInfo) {
 	this.r = ko.observable(params.r);
 	this.g = ko.observable(params.g);
