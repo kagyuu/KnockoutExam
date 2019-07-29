@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>knockdown.js ExE</title>
+    <style>
+    </style>
+    <script type="text/javascript" charset="UTF-8" src="js/lib/require.js" data-main="js/knockoutExE_init.js"></script>
+	<script id="linkNodeTemplate" type="text/html">
+
+	<li>
+		<!-- ko if: $data.url -->
+		<a data-bind="attr: { href: url, title: label }, text: label"></a>
+		<!-- /ko -->
+		<!-- ko if: $data.list -->
+		<span data-bind="text: label"></span>
+		<ul data-bind="template: { name: 'linkNodeTemplate', foreach: list }">
+		</ul>
+		<!-- /ko -->
+	</li>
+	
+	</script>  
+</head>
+<body>
+    <ul data-bind="template: { name: 'linkNodeTemplate', foreach: list }">
+	</ul>
+</body>
+</html>
