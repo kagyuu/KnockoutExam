@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>knockdown.js ExD</title>
+    <style>
+    </style>
+    <script type="text/javascript" charset="UTF-8" src="js/lib/require.js" data-main="js/knockoutExG_init.js"></script>
+  </head>
+  <body>
+	<table border=1>
+		<thead>
+			<tr>
+				<th></th>
+				<th>person</th>
+				<th>distance</th>
+			</tr>
+		</thead>
+		<tbody data-bind="foreach: people">
+			<!-- foreach 節の中では this = $data は people。view-model は $parent -->
+			<tr>
+				<td>
+					<input type="radio" name="person" data-bind="attr: {value: value}, checked: $parent.selected"/>
+				</td>
+				<td data-bind="click: $parent.rowClick">
+					<span data-bind="text: label"></span>
+				</td>
+				<td data-bind="click: $parent.rowClick">
+					<span data-bind="text: distance"></span>
+				</td>
+			</tr>
+		</tbody>
+	</table>  
+	You selected <span data-bind="text: selected"></span>.
+</body>
+</html>
